@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakir", "Fakir\Fakir.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakir.Admin", "Fakir.Admin\Fakir.Admin.csproj", "{0E6837DA-DADD-41F2-853A-621C098D78B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakir.Abp.EntityFramework", "Fakir.Abp.EntityFramework\Fakir.Abp.EntityFramework.csproj", "{19A4CE0B-0BDE-438F-A063-8467B2F20DC6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakir.Web", "Fakir.Web\Fakir.Web.csproj", "{70187A23-60B6-4C76-984E-D46C354D56CE}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{0E6837DA-DADD-41F2-853A-621C098D78B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E6837DA-DADD-41F2-853A-621C098D78B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E6837DA-DADD-41F2-853A-621C098D78B1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19A4CE0B-0BDE-438F-A063-8467B2F20DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19A4CE0B-0BDE-438F-A063-8467B2F20DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19A4CE0B-0BDE-438F-A063-8467B2F20DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19A4CE0B-0BDE-438F-A063-8467B2F20DC6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{70187A23-60B6-4C76-984E-D46C354D56CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{70187A23-60B6-4C76-984E-D46C354D56CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70187A23-60B6-4C76-984E-D46C354D56CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
