@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakir", "Fakir\Fakir.csproj", "{C541B538-5C85-45C9-9FC2-456A5B075A8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakir.Abp", "Fakir.Abp\Fakir.Abp.csproj", "{1ADC45D1-002A-498B-9450-92370D3270E4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakir.Admin", "Fakir.Admin\Fakir.Admin.csproj", "{0E6837DA-DADD-41F2-853A-621C098D78B1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakir.Abp.EntityFramework", "Fakir.Abp.EntityFramework\Fakir.Abp.EntityFramework.csproj", "{19A4CE0B-0BDE-438F-A063-8467B2F20DC6}"
@@ -23,10 +21,6 @@ Global
 		{C541B538-5C85-45C9-9FC2-456A5B075A8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C541B538-5C85-45C9-9FC2-456A5B075A8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C541B538-5C85-45C9-9FC2-456A5B075A8A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1ADC45D1-002A-498B-9450-92370D3270E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1ADC45D1-002A-498B-9450-92370D3270E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1ADC45D1-002A-498B-9450-92370D3270E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1ADC45D1-002A-498B-9450-92370D3270E4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0E6837DA-DADD-41F2-853A-621C098D78B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E6837DA-DADD-41F2-853A-621C098D78B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E6837DA-DADD-41F2-853A-621C098D78B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
