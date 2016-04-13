@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abp.Web.Mvc.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Fakir.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AbpController
     {
         public ActionResult Index()
         {

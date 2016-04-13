@@ -40,7 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAuthorizationProvider.cs" />
+    <Compile Include="AdminModule.cs" />
+    <Compile Include="AdminNavigationProvider.cs" />
+    <Compile Include="AdminPermissions.cs" />
+    <Compile Include="Controllers\AdminScriptController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AdminScriptManager.cs" />
+    <Compile Include="Services\IAdminScriptManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

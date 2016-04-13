@@ -1,0 +1,116 @@
+
+.bg-dark {
+    color: #7f8ea7;
+    background-color: #202a3a
+}
+.bg-dark.lt {
+    background-color: #2c3748!important
+}
+.bg-dark .lt {
+    background-color: #2c3748
+}
+.bg-dark.dk {
+    background-color: #151e2b!important
+}
+.bg-dark .dk {
+    background-color: #151e2b
+}
+.bg-dark.bg {
+    background-color: #202a3a!important
+}
+.bg-dark .bg {
+    background-color: #202a3a
+}
+.bg-dark a,
+a.bg-dark {
+    color: #9da9bc
+}
+.bg-dark a:hover,
+a.bg-dark:hover {
+    color: #f8f9fa
+}
+.bg-dark .text-dk {
+    color: #000
+}
+.bg-dark .text-lt {
+    color: #dadee5
+}
+.bg-dark .text-muted {
+    color: #627087
+}
+.bg-dark .dropdown-menu {
+    border-color: #202a3a
+}
+.bg-dark .nav>li>a {
+    color: #9da9bc
+}
+.bg-dark .nav>li:hover,
+.bg-dark .nav>li:focus,
+.bg-dark .nav>li>a:hover,
+.bg-dark .nav>li>a:focus,
+.bg-dark .nav>li.active>a {
+    color: #f8f9fa;
+    background-color: #252f40
+}
+.bg-dark .nav .open>a {
+    background-color: #151e2b
+}
+
+
+
+.bg-primary {
+    color: #acc8f0;
+    background-color: #155abb
+}
+.bg-primary.lt {
+    background-color: #1d66cc!important
+}
+.bg-primary .lt {
+    background-color: #1d66cc
+}
+.bg-primary.dk {
+    background-color: #0e4ea9!important
+}
+.bg-primary .dk {
+    background-color: #0e4ea9
+}
+.bg-primary.bg {
+    background-color: #155abb!important
+}
+.bg-primary .bg {
+    background-color: #155abb
+}
+.bg-primary a,
+a.bg-primary {
+    color: #d7e5f8
+}
+.bg-primary a:hover,
+a.bg-primary:hover {
+    color: #fff
+}
+.bg-primary .text-dk {
+    color: #061831
+}
+.bg-primary .text-lt {
+    color: #fff
+}
+.bg-primary .text-muted {
+    color: #7fa7e0
+}
+.bg-primary .dropdown-menu {
+    border-color: #155abb
+}
+.bg-primary .nav>li>a {
+    color: #d7e5f8
+}
+.bg-primary .nav>li:hover,
+.bg-primary .nav>li:focus,
+.bg-primary .nav>li>a:hover,
+.bg-primary .nav>li>a:focus,
+.bg-primary .nav>li.active>a {
+    color: #fff;
+    background-color: #185fc2
+}
+.bg-primary .nav .open>a {
+    background-color: #0e4ea9
+}

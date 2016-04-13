@@ -1,0 +1,47 @@
+<nav ui-nav>
+  <ul class="nav">
+    <li class="nav-header h4 m-v-sm">
+      系统管理
+    </li>
+    <li ng-class="{active:$state.includes('user')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <i class="icon glyphicon glyphicon-briefcase text-lt"></i>
+        <span class="font-normal">用户管理</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li ui-sref-active="active">
+          <a ui-sref="user.list">用户列表</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="ui.component.badge-label">组织机构</a>
+        </li>
+      </ul>
+    </li>
+    <li ng-class="{active:$state.includes('ui.angular-strap')}">
+      <a>
+        <span class="pull-right text-muted">
+          <i class="fa fa-caret-down"></i>
+        </span>
+        <b class="badge bg-success pull-right">14</b>
+        <i class="icon glyphicon glyphicon-font text-lt"></i>
+        <span class="font-normal">权限管理</span>
+      </a>
+      <ul class="nav nav-sub bg">
+        <li ui-sref-active="active">
+          <a ui-sref="ui.angular-strap.affix">菜单管理</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="ui.angular-strap.alert">权限设置</a>
+        </li>      
+      </ul>
+    </li>
+	<li ui-sref-active="active">
+      <a ui-sref="user.log">
+        <span>系统日志</span>
+      </a>
+    </li>
+  </ul>
+</nav>

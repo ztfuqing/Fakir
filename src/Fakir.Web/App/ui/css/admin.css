@@ -1,0 +1,188 @@
+html,
+body {
+    width: 100%;
+    height: 100%
+}
+body {
+    overflow-x: hidden
+}
+.navbar {
+    border: 0 none;
+    margin: 0;
+    min-height: 48px;
+}
+.app {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 20px
+}
+.app-header {
+    position: relative;
+    z-index: 1035;
+    padding: 0;
+    margin: 0;
+    border-radius: 0
+}
+.app-header-fixed {
+    padding-top: 48px
+}
+.app-header-fixed .app-header {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+.app-aside {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    -webkit-box-shadow: 1px 0 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.05);
+    width: 230px;
+}
+.app-aside ~ .app-content, .app-aside ~ .app-footer {
+    margin-left: 230px;
+}
+
+.app-aside-inner {
+    bottom: 0;
+    position: absolute !important;
+    top: 48px !important;
+    width: 100%;
+}
+
+.app-header-fixed .app-aside-inner.affix, .app-header-fixed .app-aside-inner.affix-top, .app-header-fixed .app-aside-inner.affix-bottom {
+    top: 48px !important;
+}
+
+.app-aside-inner {
+    bottom: 0;
+    position: absolute !important;
+    top: 48px !important;
+    width: 100%;
+}
+
+.app-aside-body {
+    bottom: 0px;
+    left: 0;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.app-footer {
+    bottom: 0;
+    box-shadow: -1px 0 3px rgba(0, 0, 0, 0.05);
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+/*side nav*/
+
+nav ul.nav li {
+    position: relative;
+    display: block
+}
+nav ul.nav li li a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 45px
+}
+nav ul.nav li li li a {
+    padding-left: 65px
+}
+nav ul.nav li a {
+    position: relative;
+    display: block;
+    padding: 7px 20px;
+    font-weight: normal;
+    text-transform: none
+}
+nav ul.nav li a .badge,
+nav ul.nav li a .label {
+    padding: 2px 5px;
+    margin-top: 2px;
+    margin-left: 5px;
+    font-size: 11px
+}
+nav ul.nav li a>.pull-right i {
+    position: relative;
+    top: 5px;
+    width: 1.2em;
+    text-align: right;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+}
+nav ul.nav li a>i {
+    min-width: 1.2em;
+    margin-right: 5px;
+    text-align: center
+}
+nav ul.nav li.active>a>.pull-right i {
+    top: 0;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg)
+}
+nav ul.nav.nav-stacked a,
+nav ul.nav.nav-stacked .nav-header {
+    padding: 5px 10px
+}
+nav .nav-header {
+    padding: 9px 20px
+}
+nav .nav-header:hover,
+nav .nav-header:focus {
+    background-color: transparent!important
+}
+
+
+.nav-sub {
+    height: 0;
+    margin-left: -20px;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-transition: all .2s ease-in-out 0s;
+    transition: all .2s ease-in-out 0s
+}
+.active>.nav-sub {
+    height: auto!important;
+    margin-left: 0;
+    overflow: visible;
+    opacity: 1
+}
+
+/*side nav end*/
+
+.scrollable {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.scrollable.hover {
+    overflow-y: hidden!important
+}
+.scrollable.hover>* {
+    margin-top: -1px
+}
+.scrollable.hover:hover {
+    overflow: visible!important;
+    overflow-y: auto!important
+}
+.smart .scrollable {
+    overflow-y: auto!important
+}
+.scroll-x,
+.scroll-y {
+    overflow: hidden;
+}
+.scroll-y {
+    overflow-y: auto
+}
+.scroll-x {
+    overflow-x: auto
+}
