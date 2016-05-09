@@ -5,6 +5,7 @@ using Abp.WebApi;
 using Abp.WebApi.Controllers.Dynamic.Builders;
 using System.Reflection;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Fakir.Web.Api
 {
@@ -23,7 +24,13 @@ namespace Fakir.Web.Api
                 .ForAll<IApplicationService>(typeof(FakirModule).Assembly, "app")
                 .Build();
 
-            Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
+            Configuration.Modules
+                .AbpWebApi()
+                .HttpConfiguration
+                .Filters.Add(new HostAuthenticationFilter("Bearer"));
+
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            GlobalConfiguration.Configuration.EnableCors(cors);
         }
     }
 }

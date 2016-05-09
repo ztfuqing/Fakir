@@ -5,7 +5,7 @@ namespace Fakir.EntityFramework.Migrations
     using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.Migrations;
     
-    public partial class fakir : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
