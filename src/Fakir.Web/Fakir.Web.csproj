@@ -268,6 +268,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AdminBundleConfig.cs" />
     <Compile Include="App_Start\FakirWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
@@ -301,6 +302,15 @@
     <Content Include="Abp\Framework\styles\abp.mixings.less" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
+    <Content Include="libs\angular\angular-animate.min.js" />
+    <Content Include="libs\angular\angular-resource.min.js" />
+    <Content Include="libs\angular\angular-route.min.js" />
+    <Content Include="libs\angular\angular-sanitize.min.js" />
+    <Content Include="libs\angular\angular-ui-router.min.js" />
+    <Content Include="libs\angular\angular.js" />
+    <Content Include="libs\bootstrap\bootstrap.min.css" />
+    <Content Include="libs\bootstrap\bootstrap.min.js" />
+    <Content Include="libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="log4net.config" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -324,6 +334,13 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
     <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Modules\Admin\Index.cshtml" />
+    <Content Include="Modules\Admin\web.config" />
+    <Content Include="libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="libs\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -347,14 +364,16 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fakir.Admin\Fakir.Admin.csproj">
+      <Project>{0e6837da-dadd-41f2-853a-621c098d78b1}</Project>
+      <Name>Fakir.Admin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fakir.EntityFramework\Fakir.EntityFramework.csproj">
       <Project>{10cc86a4-6cc0-4efa-9f2b-8c51bba1511a}</Project>
       <Name>Fakir.EntityFramework</Name>

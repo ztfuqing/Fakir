@@ -8,7 +8,7 @@ namespace Fakir.Admin
     {
         public override void PreInitialize()
         {
-
+            Configuration.Navigation.Providers.Add<AdminNavigationProvider>();
         }
 
         public override void Initialize()

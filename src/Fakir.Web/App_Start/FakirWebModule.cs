@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace Fakir.Web
@@ -52,7 +53,7 @@ namespace Fakir.Web
 
             //Areas
             AreaRegistration.RegisterAllAreas();
-
+            AdminBundleConfig.RegisterBundles(BundleTable.Bundles);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
