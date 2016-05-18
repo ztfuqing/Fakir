@@ -59,6 +59,19 @@ namespace Fakir.EntityFramework.Migrations.SeedData
         private void CreateUserAndRoles()
         {
             //Admin role for host
+            var org = _context.OrganizationUnits.FirstOrDefault(a => a.Code == "ROOT");
+            if (org == null)
+            {
+                org = _context.OrganizationUnits.Add(new Abp.Organizations.OrganizationUnit
+                {
+                    Code = "1000",
+                    DisplayName = "广安电厂",
+                    IsDeleted = false,
+                    TenantId = null,
+                    ParentId = null
+                });
+            }
+            _context.SaveChanges();
 
             var adminRoleForHost = _context.Roles.FirstOrDefault(r => r.TenantId == null && r.Name == StaticRoleNames.Host.Admin);
             if (adminRoleForHost == null)
@@ -98,6 +111,7 @@ namespace Fakir.EntityFramework.Migrations.SeedData
                     new User
                     {
                         TenantId = null,
+                        Organization= org,
                         UserName = User.AdminUserName,
                         Name = "System",
                         Surname = "Administrator",
@@ -115,71 +129,7 @@ namespace Fakir.EntityFramework.Migrations.SeedData
 
                 _context.SaveChanges();
             }
-
-            //Default tenant
-
-            var defaultTenant = _context.Tenants.FirstOrDefault(t => t.TenancyName == "Default");
-            if (defaultTenant == null)
-            {
-                defaultTenant = _context.Tenants.Add(new Tenant { TenancyName = "Default", Name = "Default" });
-                _context.SaveChanges();
-            }
-
-            //Admin role for 'Default' tenant
-
-            var adminRoleForDefaultTenant = _context.Roles.FirstOrDefault(r => r.TenantId == defaultTenant.Id && r.Name == StaticRoleNames.Tenants.Admin);
-            if (adminRoleForDefaultTenant == null)
-            {
-                adminRoleForDefaultTenant = _context.Roles.Add(new Role { TenantId = defaultTenant.Id, Name = StaticRoleNames.Tenants.Admin, DisplayName = StaticRoleNames.Tenants.Admin, IsStatic = true });
-                _context.SaveChanges();
-
-                //Grant all tenant permissions
-                var permissions = PermissionFinder
-                    .GetAllPermissions(new FakirAuthorizationProvider())
-                    .Where(p => p.MultiTenancySides.HasFlag(MultiTenancySides.Tenant))
-                    .ToList();
-
-                foreach (var permission in permissions)
-                {
-                    if (!permission.IsGrantedByDefault)
-                    {
-                        _context.Permissions.Add(
-                            new RolePermissionSetting
-                            {
-                                Name = permission.Name,
-                                IsGranted = true,
-                                RoleId = adminRoleForDefaultTenant.Id
-                            });
-                    }
-                }
-
-                _context.SaveChanges();
-            }
-
-            //Admin for 'Default' tenant
-
-            var adminUserForDefaultTenant = _context.Users.FirstOrDefault(u => u.TenantId == defaultTenant.Id && u.UserName == User.AdminUserName);
-            if (adminUserForDefaultTenant == null)
-            {
-                adminUserForDefaultTenant = _context.Users.Add(
-                    new User
-                    {
-                        TenantId = defaultTenant.Id,
-                        UserName = User.AdminUserName,
-                        Name = "System",
-                        Surname = "Administrator",
-                        EmailAddress = "admin@fakir.com",
-                        IsEmailConfirmed = true,
-                        ShouldChangePasswordOnNextLogin = true,
-                        Mobile = "15181566132",
-                        IsActive = true,
-                        Password = new PasswordHasher().HashPassword("123456")
-                    });
-                _context.SaveChanges();
-
-                _context.UserRoles.Add(new UserRole(adminUserForDefaultTenant.Id, adminRoleForDefaultTenant.Id));
-                _context.SaveChanges();
-            }
+            
         }
 
         private void CreateLanguages()

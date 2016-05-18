@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Abp.Web.Mvc.Authorization;
 
 namespace Fakir.Web.Controllers
 {
+    [AbpMvcAuthorize]
     public class HomeController : AbpController
     {
         public ActionResult Index()
@@ -19,6 +21,11 @@ namespace Fakir.Web.Controllers
             ViewBag.Message = "Your application description page.";
 
             return View();
+        }
+
+        public ActionResult Admin()
+        {
+            return View("~/admin/views/layout/index.cshtml");
         }
 
         public ActionResult Contact()

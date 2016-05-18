@@ -1,0 +1,57 @@
+<div>
+    <form name="conferenceCreateOrEditForm" role="form" novalidate class="form-validation">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <span ng-if="vm.conference.id">编辑会议: {{vm.conference.name}}</span>
+                <span ng-if="!vm.conference.id">增加会议</span>
+            </h4>
+        </div>
+        <div class="modal-body">
+            <uib-tabset class="tab-container tabbable-line">
+                <uib-tab heading="会议信息">
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input class="form-control" type="text" name="Name" ng-class="{'edited':vm.conference.name}" ng-model="vm.conference.name" required maxlength="50">
+                        <label>会议名称</label>
+                    </div>
+
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.conference.subject}" ng-model="vm.conference.subject" required maxlength="100">
+                        <label>会议主题</label>
+                    </div>
+
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.conference.site}" ng-model="vm.conference.site" required maxlength="100">
+                        <label>会议地点</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.conference.target}" ng-model="vm.conference.target" required maxlength="1000">
+                        <label>会议目标</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.conference.startTime}" ng-model="vm.conference.startTime" required maxlength="100">
+                        <label>开始时间</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.conference.endTime}" ng-model="vm.conference.endTime" required maxlength="100">
+                        <label>结束时间</label>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.conference.emcee}" ng-model="vm.conference.emcee" required maxlength="100">
+                        <label>会议主持人</label>
+                    </div>
+                </uib-tab>
+                <uib-tab>
+                    <uib-tab-heading>
+                        议程<b class="badge badge-primary">{{vm.getAgendasCount()}}</b>
+                    </uib-tab-heading>
+                </uib-tab>
+                <uib-tab heading="参会人员">
+                </uib-tab>
+            </uib-tabset>
+        </div>
+        <div class="modal-footer">
+            <button ng-disabled="vm.saving" type="button" class="btn btn-default" ng-click="vm.cancel()">取消</button>
+            <button type="submit" button-busy="vm.saving" busy-text="保存中..." class="btn btn-primary blue" ng-click="vm.save()" ng-disabled="conferenceCreateOrEditForm.$invalid"><i class="fa fa-save"></i> <span>保存</span></button>
+        </div>
+    </form>
+</div>

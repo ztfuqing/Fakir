@@ -1,10 +1,6 @@
 ﻿using Abp.Authorization;
 using Abp.Localization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Abp.MultiTenancy;
 
 namespace Fakir.Admin
 {
@@ -12,28 +8,41 @@ namespace Fakir.Admin
     {
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
-            //var admin = context.GetPermissionOrNull(AdminPermissions.Admin) ?? context.CreatePermission(AdminPermissions.Admin, L("系统模块"));
 
-            //var dashboard = admin.CreateChildPermission(AdminPermissions.Admin_Dashboard, L("首页"));
+            var pages = context.GetPermissionOrNull(AdminPermissions.Pages) ?? context.CreatePermission(AdminPermissions.Pages, FL("功能"));
 
-            //var system = admin.CreateChildPermission(AdminPermissions.Admin_System, L("系统管理"));
+            var administration = pages.CreateChildPermission(AdminPermissions.Pages_Administration, FL("系统管理"));
 
-            //var tenants = system.CreateChildPermission(AdminPermissions.Admin_System_Tenant, L("租户管理"));
-            //var user = system.CreateChildPermission(AdminPermissions.Admin_System_Users, L("用户管理"));
-            //var roles = system.CreateChildPermission(AdminPermissions.Admin_System_Roles, L("角色管理"));
+            var roles = administration.CreateChildPermission(AdminPermissions.Pages_Administration_Roles, FL("角色管理"));
+            roles.CreateChildPermission(AdminPermissions.Pages_Administration_Roles_Create, FL("创建角色"));
+            roles.CreateChildPermission(AdminPermissions.Pages_Administration_Roles_Edit, FL("编辑角色"));
+            roles.CreateChildPermission(AdminPermissions.Pages_Administration_Roles_Delete, FL("删除角色"));
 
-            //var goods = admin.CreateChildPermission(AdminPermissions.Admin_Goods, L("商品管理"));
+            var users = administration.CreateChildPermission(AdminPermissions.Pages_Administration_Users, FL("用户管理"));
+            users.CreateChildPermission(AdminPermissions.Pages_Administration_Users_Create, FL("创建用户"));
+            users.CreateChildPermission(AdminPermissions.Pages_Administration_Users_Edit, FL("编辑用户"));
+            users.CreateChildPermission(AdminPermissions.Pages_Administration_Users_Delete, FL("删除用户"));
+            users.CreateChildPermission(AdminPermissions.Pages_Administration_Users_ChangePermissions, FL("用户授权"));
 
-            //var tires = goods.CreateChildPermission(AdminPermissions.Admin_Goods_Tire, L("轮胎管理"));
 
-            //var tires_category= tires.CreateChildPermission(AdminPermissions.Admin_Goods_Tire_Category, L("轮胎类别管理"));
+            administration.CreateChildPermission(AdminPermissions.Pages_Administration_AuditLogs, FL("审计日志"));
 
-            //var tires_list = tires.CreateChildPermission(AdminPermissions.Admin_Goods_Tire_List, L("轮胎列表"));
+            var organizationUnits = administration.CreateChildPermission(AdminPermissions.Pages_Administration_OrganizationUnits, FL("组织机构管理"));
+            organizationUnits.CreateChildPermission(AdminPermissions.Pages_Administration_OrganizationUnits_ManageOrganizationTree, FL("ManagingOrganizationTree"));
+            organizationUnits.CreateChildPermission(AdminPermissions.Pages_Administration_OrganizationUnits_ManageMembers, FL("ManagingMembers"));
+
+
+            pages.CreateChildPermission(AdminPermissions.Pages_Dashboard, FL("工作台"));
         }
 
         private static ILocalizableString L(string name)
         {
             return new LocalizableString(name, FakirConsts.LocalizationSourceName);
+        }
+
+        private static ILocalizableString FL(string name)
+        {
+            return new FixedLocalizableString(name);
         }
     }
 }

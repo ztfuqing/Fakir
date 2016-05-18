@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakir.EntityFramework", "Fa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakir.Web.Api", "Fakir.Web.Api\Fakir.Web.Api.csproj", "{5847E40A-D72C-4A29-9ABF-1E3449BEF40F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakir.Web.Mvc", "Fakir.Web.Mvc\Fakir.Web.Mvc.csproj", "{FC724E62-04D3-4C65-9C27-9AF530A80D06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakir.Metting", "Fakir.Metting\Fakir.Metting.csproj", "{1E7D495B-1CE2-4F69-9F83-8DBDEB30C6E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{5847E40A-D72C-4A29-9ABF-1E3449BEF40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5847E40A-D72C-4A29-9ABF-1E3449BEF40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5847E40A-D72C-4A29-9ABF-1E3449BEF40F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC724E62-04D3-4C65-9C27-9AF530A80D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC724E62-04D3-4C65-9C27-9AF530A80D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC724E62-04D3-4C65-9C27-9AF530A80D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC724E62-04D3-4C65-9C27-9AF530A80D06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E7D495B-1CE2-4F69-9F83-8DBDEB30C6E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E7D495B-1CE2-4F69-9F83-8DBDEB30C6E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E7D495B-1CE2-4F69-9F83-8DBDEB30C6E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E7D495B-1CE2-4F69-9F83-8DBDEB30C6E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

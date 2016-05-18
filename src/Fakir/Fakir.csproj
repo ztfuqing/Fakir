@@ -90,6 +90,10 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.5840.25917, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.6\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -98,6 +102,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorization\AbpLoginResultTypeHelper.cs" />
     <Compile Include="Authorization\Editions\EditionManager.cs" />
     <Compile Include="Authorization\FakirAuthorizationProvider.cs" />
     <Compile Include="Authorization\Features\FakirFeatureProvider.cs" />
@@ -107,6 +112,7 @@
     <Compile Include="Authorization\MultiTenancy\Tenant.cs" />
     <Compile Include="Authorization\MultiTenancy\TenantManager.cs" />
     <Compile Include="Authorization\PermissionChecker.cs" />
+    <Compile Include="Authorization\PermissionManagerExtensions.cs" />
     <Compile Include="Authorization\Roles\AppRoleConfig.cs" />
     <Compile Include="Authorization\Roles\Role.cs" />
     <Compile Include="Authorization\Roles\RoleManager.cs" />
@@ -121,18 +127,36 @@
     <Compile Include="Configuration\FakirSettings.cs" />
     <Compile Include="DataExporting\Excel\EpPlusExcelExporterBase.cs" />
     <Compile Include="Dto\FileDto.cs" />
+    <Compile Include="Dto\FlatPermissionDto.cs" />
+    <Compile Include="Dto\PagedAndFilteredInputDto.cs" />
+    <Compile Include="Dto\PagedAndSortedInputDto.cs" />
     <Compile Include="Dto\PagedInputDto.cs" />
+    <Compile Include="Dto\PagedSortedAndFilteredInputDto.cs" />
     <Compile Include="FakirAppServiceBase.cs" />
     <Compile Include="FakirConsts.cs" />
     <Compile Include="FakirDomainServiceBase.cs" />
     <Compile Include="FakirModule.cs" />
     <Compile Include="FakirServiceBase.cs" />
     <Compile Include="IAppFolders.cs" />
+    <Compile Include="Notifications\Dto\GetNotificationSettingsOutput.cs" />
+    <Compile Include="Notifications\Dto\GetNotificationsOutput.cs" />
+    <Compile Include="Notifications\Dto\GetUserNotificationsInput.cs" />
+    <Compile Include="Notifications\Dto\NotificationSubscriptionDto.cs" />
+    <Compile Include="Notifications\Dto\NotificationSubscriptionWithDisplayNameDto.cs" />
+    <Compile Include="Notifications\Dto\UpdateNotificationSettingsInput.cs" />
+    <Compile Include="Notifications\INotificationAppService.cs" />
+    <Compile Include="Notifications\NotificationAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sessions\Dto\GetCurrentLoginInformationsOutput.cs" />
+    <Compile Include="Sessions\Dto\TenantLoginInfoDto.cs" />
+    <Compile Include="Sessions\Dto\UserLoginInfoDto.cs" />
+    <Compile Include="Sessions\ISessionAppService.cs" />
+    <Compile Include="Sessions\SessionAppService.cs" />
     <Compile Include="Storage\BinaryObject.cs" />
     <Compile Include="Storage\DbBinaryObjectManager.cs" />
     <Compile Include="Storage\IBinaryObjectManager.cs" />
     <Compile Include="Tools\MimeTypeNames.cs" />
+    <Compile Include="Tools\SimpleStringCipher.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />

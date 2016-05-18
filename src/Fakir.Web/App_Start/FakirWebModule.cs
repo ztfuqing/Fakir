@@ -1,4 +1,9 @@
-﻿using Abp.Hangfire;
+﻿using System.Reflection;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+using Abp.Hangfire;
 using Abp.IO;
 using Abp.Modules;
 using Abp.Web.Mvc;
@@ -6,12 +11,9 @@ using Abp.Web.SignalR;
 using Abp.Zero.Configuration;
 using Castle.MicroKernel.Registration;
 using Fakir.EntityFramework;
+using Fakir.Web.Admin;
+using Fakir.Web.Bundling;
 using Microsoft.Owin.Security;
-using System.Reflection;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
 
 namespace Fakir.Web
 {
@@ -25,19 +27,9 @@ namespace Fakir.Web
     {
         public override void PreInitialize()
         {
-            //Use database as language management
             Configuration.Modules.Zero().LanguageManagement.EnableDbLocalization();
 
-            //Configure navigation/menu
-            //Configuration.Navigation.Providers.Add<AppNavigationProvider>();
-            //Configuration.Navigation.Providers.Add<FrontEndNavigationProvider>();
-            //Configuration.Navigation.Providers.Add<MpaNavigationProvider>();
-
-            //Configure to use Hangfire as background job manager. Remove these lines to use default background job manager, instead of Hangfire.
-            //Configuration.BackgroundJobs.UseHangfire(configuration =>
-            //{
-            //    configuration.GlobalConfiguration.UseMySqlStorage("Default");
-            //});
+            Configuration.Navigation.Providers.Add<FrontEndNavigationProvider>();
         }
 
         public override void Initialize()
@@ -53,7 +45,11 @@ namespace Fakir.Web
 
             //Areas
             AreaRegistration.RegisterAllAreas();
+            //AppBundleConfig.RegisterBundles(BundleTable.Bundles);
             AdminBundleConfig.RegisterBundles(BundleTable.Bundles);
+            FrontEndBundleConfig.RegisterBundles(BundleTable.Bundles);
+            CommonBundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundleTable.EnableOptimizations = true;
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 

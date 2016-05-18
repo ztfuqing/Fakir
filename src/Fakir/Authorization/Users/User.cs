@@ -3,6 +3,8 @@ using Abp.Extensions;
 using Fakir.Authorization.MultiTenancy;
 using Microsoft.AspNet.Identity;
 using System;
+using Abp.Organizations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Fakir.Authorization.Users
 {
@@ -15,6 +17,11 @@ namespace Fakir.Authorization.Users
         public virtual bool ShouldChangePasswordOnNextLogin { get; set; }
 
         public virtual long? UserLinkId { get; set; }
+
+        public virtual long OrgId { get; set; }
+
+        [ForeignKey("OrgId")]
+        public virtual OrganizationUnit Organization { get; set; }
 
         public static string CreateRandomPassword()
         {

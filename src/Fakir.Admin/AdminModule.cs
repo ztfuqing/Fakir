@@ -1,5 +1,6 @@
 ﻿using Abp.Modules;
 using System.Reflection;
+using Abp.Application.Services;
 
 namespace Fakir.Admin
 {
@@ -9,6 +10,7 @@ namespace Fakir.Admin
         public override void PreInitialize()
         {
             Configuration.Navigation.Providers.Add<AdminNavigationProvider>();
+            Configuration.Authorization.Providers.Add<AdminAuthorizationProvider>();
         }
 
         public override void Initialize()

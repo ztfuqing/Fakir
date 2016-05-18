@@ -120,9 +120,9 @@
     <Compile Include="FakirDataModule.cs" />
     <Compile Include="FakirDbContext.cs" />
     <Compile Include="FakirRepositoryBase.cs" />
-    <Compile Include="Migrations\201605081550291_InitialCreate.cs" />
-    <Compile Include="Migrations\201605081550291_InitialCreate.Designer.cs">
-      <DependentUpon>201605081550291_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201605161405251_InitialCreate.cs" />
+    <Compile Include="Migrations\201605161405251_InitialCreate.Designer.cs">
+      <DependentUpon>201605161405251_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultDataBuilder.cs" />
@@ -140,8 +140,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605081550291_InitialCreate.resx">
-      <DependentUpon>201605081550291_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605161405251_InitialCreate.resx">
+      <DependentUpon>201605161405251_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

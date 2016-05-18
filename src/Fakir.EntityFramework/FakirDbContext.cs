@@ -14,7 +14,7 @@ namespace Fakir.EntityFramework
         public virtual IDbSet<BinaryObject> BinaryObjects { get; set; }
 
         public FakirDbContext()
-            : base("Data Source=localhost;user id=root;password=123;port=3306;Initial Catalog=fakir;Character Set=utf8;Allow User Variables=True;")
+            : base("Default")
         {
 
         }

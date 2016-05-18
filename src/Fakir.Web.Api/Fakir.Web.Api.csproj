@@ -124,6 +124,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fakir.Admin\Fakir.Admin.csproj">
+      <Project>{0e6837da-dadd-41f2-853a-621c098d78b1}</Project>
+      <Name>Fakir.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fakir.Metting\Fakir.Metting.csproj">
+      <Project>{1e7d495b-1ce2-4f69-9f83-8dbdeb30c6e6}</Project>
+      <Name>Fakir.Metting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fakir\Fakir.csproj">
       <Project>{c541b538-5c85-45c9-9fc2-456a5b075a8a}</Project>
       <Name>Fakir</Name>
