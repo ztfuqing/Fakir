@@ -13,7 +13,6 @@ namespace Fakir.Metting.Dtos
     [AutoMapFrom(typeof(Conference))]
     public class ConferenceListDto : EntityDto<long>
     {
-
         public string Name { get; set; }
                
         public string Subject { get; set; }
@@ -27,8 +26,6 @@ namespace Fakir.Metting.Dtos
         public string Site { get; set; }
                
         public string Emcee { get; set; }
-               
-        public string Participant { get; set; }
                
         public bool IsActive { get; set; }
     }

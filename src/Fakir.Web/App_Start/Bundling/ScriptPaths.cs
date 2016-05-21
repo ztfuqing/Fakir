@@ -26,6 +26,7 @@ namespace Fakir.Web.Bundling
         public const string Bootstrap = "~/libs/bootstrap/js/bootstrap.min.js";
         public const string Bootstrap_Hover_Dropdown = "~/libs/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js";
         public const string Bootstrap_DateRangePicker = "~/libs/bootstrap-daterangepicker/daterangepicker.js";
+        public const string Bootstrap_DateTimePicker =  "~/libs/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js";
         public const string Bootstrap_Select = "~/libs/bootstrap-select/bootstrap-select.min.js";
         public const string Bootstrap_Switch = "~/libs/bootstrap-switch/js/bootstrap-switch.min.js";
 
@@ -60,7 +61,13 @@ namespace Fakir.Web.Bundling
         public const string Angular_Bootstrap_Switch = "~/libs/angular-bootstrap-switch/angular-bootstrap-switch.min.js";
         public const string Angular_Strap = "~/libs/angular-strap/angular-strap.min.js";
         public const string Angular_Strap_Tpl = "~/libs/angular-strap/angular-strap.tpl.min.js";
+        public const string Angular_DateTimePicker = "~/libs/angular-bootstrap-datetimepicker/js/datetimepicker.js";
+        public const string Angular_DateTimePicker_Tpl = "~/libs/angular-bootstrap-datetimepicker/js/datetimepicker.templates.js";
 
+
+        public const string UEditor = "~/libs/angular-ueditor/ueditor.js";
+        public const string UEditor_Cfg = "~/libs/angular-ueditor/ueditor.config.js";
+        public const string Angular_UEditor = "~/libs/angular-ueditor/angular.ueditor.js";
 
         public const string Abp = "~/Abp/Framework/scripts/abp.js";
         public const string Abp_JQuery = "~/Abp/Framework/scripts/libs/abp.jquery.js";

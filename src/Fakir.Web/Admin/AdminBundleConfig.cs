@@ -35,6 +35,7 @@ namespace Fakir.Web.Admin
                         ScriptPaths.Toastr,
                         ScriptPaths.MomentJs,
                         ScriptPaths.Bootstrap_DateRangePicker,
+                        ScriptPaths.Bootstrap_DateTimePicker,
                         ScriptPaths.Bootstrap_Select,
                         ScriptPaths.Underscore,
                         ScriptPaths.Angular,
@@ -49,6 +50,9 @@ namespace Fakir.Web.Admin
                         ScriptPaths.Angular_DateRangePicker,
                         ScriptPaths.Angular_Moment,
                         ScriptPaths.Angular_Bootstrap_Switch,
+                        ScriptPaths.UEditor_Cfg,
+                        ScriptPaths.UEditor,
+                        ScriptPaths.Angular_UEditor,
                         ScriptPaths.Abp,
                         ScriptPaths.Abp_JQuery,
                         ScriptPaths.Abp_Toastr,
@@ -103,6 +107,7 @@ namespace Fakir.Web.Admin
                     .Include(StylePaths.Bootstrap_DateRangePicker)
                     .Include(StylePaths.Bootstrap_Select)
                     .Include(StylePaths.Bootstrap_Switch)
+                    .Include(StylePaths.Bootstrap_DateTimePicker)
                     .ForceOrdered()
                 );
         }

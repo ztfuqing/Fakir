@@ -52,5 +52,7 @@ namespace Fakir.Metting.Domain
         public virtual string SummaryText { get; set; }
 
         public virtual bool IsActive { get; set; }
+
+        public virtual bool IsFinished { get; set; }
     }
 }

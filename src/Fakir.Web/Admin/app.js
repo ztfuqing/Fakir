@@ -99,12 +99,15 @@ appModule.config([
             url: '/notifications',
             templateUrl: '~/Admin/views/notifications/index.cshtml'
         });
-
+        
         $stateProvider.state('meeting', {
             url: '/meeting',
             templateUrl: '~/Admin/views/meeting/conference/index.cshtml'
         });
-
+        $stateProvider.state('agenda', {
+            url: '/agenda',
+            templateUrl: '~/Admin/views/meeting/agenda/index.cshtml'
+        });
     }
 ]);
 

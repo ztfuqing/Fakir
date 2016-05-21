@@ -13,7 +13,7 @@ namespace Fakir.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return Redirect("/Application");
         }
 
         public ActionResult About()

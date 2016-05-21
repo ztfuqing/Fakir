@@ -20,6 +20,8 @@ namespace Fakir.Admin.Services
 
         Task<GetUserPermissionsForEditOutput> GetUserPermissionsForEdit(IdInput<long> input);
 
+        Task<GetDepartmentUserTreeOutput> GetDepartmentUserTree(IdInput<long> input);
+
         Task ResetUserSpecificPermissions(IdInput<long> input);
 
         Task UpdateUserPermissions(UpdateUserPermissionsInput input);

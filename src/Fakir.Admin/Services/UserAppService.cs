@@ -13,6 +13,8 @@ using Fakir.Dto;
 using System.Linq.Dynamic;
 using Abp.AutoMapper;
 using Fakir.Authorization;
+using Abp.Domain.Repositories;
+using Abp.Organizations;
 
 namespace Fakir.Admin.Services
 {
@@ -20,13 +22,15 @@ namespace Fakir.Admin.Services
     {
         private readonly RoleManager _roleManager;
         private readonly INotificationSubscriptionManager _notificationSubscriptionManager;
-
+        private readonly IRepository<OrganizationUnit, long> _organizationRepository;
         public UserAppService(
             RoleManager roleManager,
-            INotificationSubscriptionManager notificationSubscriptionManager)
+            INotificationSubscriptionManager notificationSubscriptionManager,
+            IRepository<OrganizationUnit, long> organizationRepository)
         {
             _roleManager = roleManager;
             _notificationSubscriptionManager = notificationSubscriptionManager;
+            _organizationRepository = organizationRepository;
         }
 
         public Task CreateOrUpdateUser(CreateOrUpdateUserInput input)
@@ -87,9 +91,17 @@ namespace Fakir.Admin.Services
             return output;
         }
 
-        public Task<GetUserPermissionsForEditOutput> GetUserPermissionsForEdit(IdInput<long> input)
+        public async Task<GetUserPermissionsForEditOutput> GetUserPermissionsForEdit(IdInput<long> input)
         {
-            throw new NotImplementedException();
+            var user = await UserManager.GetUserByIdAsync(input.Id);
+            var permissions = PermissionManager.GetAllPermissions();
+            var grantedPermissions = await UserManager.GetGrantedPermissionsAsync(user);
+
+            return new GetUserPermissionsForEditOutput
+            {
+                Permissions = permissions.MapTo<List<FlatPermissionDto>>().OrderBy(p => p.DisplayName).ToList(),
+                GrantedPermissionNames = grantedPermissions.Select(p => p.Name).ToList()
+            };
         }
 
         public async Task<PagedResultOutput<UserListDto>> GetUsers(GetUsersInput input)
@@ -162,6 +174,38 @@ namespace Fakir.Admin.Services
 
                 userListDto.Roles = userListDto.Roles.OrderBy(r => r.RoleName).ToList();
             }
+        }
+
+        public async Task<GetDepartmentUserTreeOutput> GetDepartmentUserTree(IdInput<long> input)
+        {
+            List<FlatDepartmentUserDto> list = new List<FlatDepartmentUserDto>();
+
+            _organizationRepository.GetAllList().ForEach(a =>
+            {
+                list.Add(new FlatDepartmentUserDto
+                {
+                    DisplayName = a.DisplayName,
+                    Id = "D" + a.Id.ToString(),
+                    ParentId = "D" + (a.ParentId.HasValue ? a.ParentId.Value.ToString() : "")
+                });
+            });
+
+            var users = await UserManager.Users.ToListAsync();
+
+            users.ForEach(a =>
+            {
+                list.Add(new FlatDepartmentUserDto
+                {
+                    DisplayName = a.Surname,
+                    Id = a.Id.ToString(),
+                    ParentId = "D" + a.OrgId.ToString()
+                });
+            });
+
+            return new GetDepartmentUserTreeOutput
+            {
+                DepartmentUsers = list
+            };
         }
     }
 }

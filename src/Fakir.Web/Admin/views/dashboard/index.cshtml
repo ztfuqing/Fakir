@@ -1,2 +1,47 @@
-﻿<div>sdfsdfsdfdsfsd
+﻿<div ng-controller="common.views.dashboard.index as vm">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="portlet light bordered ">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <i class="icon-settings font-green"></i>
+                        <span class="caption-subject font-green bold uppercase">当前会议</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div busy-if="vm.loading">
+                        <table class="table table-striped table-bordered table-advance table-hover">
+                            <thead>
+                                <tr class="uppercase">
+                                    <th> 名称 </th>
+                                    <th> 主题 </th>
+                                    <th> 地点 </th>
+                                    <th> 开始时间 </th>
+                                    <th> 结束时间</th>
+                                    <th>主持人</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in vm.enCompleteConferences">
+                                    <td>
+                                        <a class="primary-link" href="javascript:;" ng-click="vm.getConferenceDetail(item.id);">{{item.name}}</a>
+                                    </td>
+                                    <td>
+                                        {{item.subject}}
+                                    </td>
+                                    <td>
+                                        {{item.site}}
+                                    </td>
+                                    <td> {{item.startTime}} </td>
+                                    <td> {{item.endTime}} </td>
+                                    <td> {{item.emcee}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

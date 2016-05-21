@@ -1,13 +1,11 @@
-﻿using Abp.Application.Services;
+﻿using System.Reflection;
+using System.Web.Http;
+using System.Web.Http.Cors;
+using Abp.Application.Services;
 using Abp.Configuration.Startup;
 using Abp.Modules;
 using Abp.WebApi;
 using Abp.WebApi.Controllers.Dynamic.Builders;
-using System.Reflection;
-using System.Web.Http;
-using System.Web.Http.Cors;
-using Fakir.Admin;
-using Fakir.Metting;
 
 namespace Fakir.Web.Api
 {
@@ -25,13 +23,6 @@ namespace Fakir.Web.Api
             DynamicApiControllerBuilder
                 .ForAll<IApplicationService>(typeof(FakirModule).Assembly, "app")
                 .Build();
-            DynamicApiControllerBuilder
-    .ForAll<IApplicationService>(typeof(AdminModule).Assembly, "app")
-    .Build();
-
-            DynamicApiControllerBuilder
-.ForAll<IApplicationService>(typeof(MeetingModule).Assembly, "meet")
-.Build();
 
             Configuration.Modules
                 .AbpWebApi()

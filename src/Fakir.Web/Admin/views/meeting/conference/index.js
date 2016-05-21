@@ -49,15 +49,37 @@
                     {
                         name: "开始时间",
                         field: 'startTime',
-                        cellFilter: 'momentFormat: \'L\'',
+                        cellFilter: 'momentFormat: \'YYYY-MM-DD HH:mm\'',
                         minWidth: 100                        
                     },
                     {
                         name: "地点",
                         field: 'site',
+                        minWidth: 80,
+                        enableSorting: false,
+                    },
+                    {
+                        name: "状态",
+                        field: 'isActive',
                         minWidth: 120,
-                        enableSorting: false
-                    }
+                        enableSorting: false,
+                        cellTemplate:
+                            '<div class=\"ui-grid-cell-contents\">' +
+                            '  <span ng-show="row.entity.isActive" class="label label-success">未开始</span>' +
+                            '  <span ng-show="!row.entity.isActive" class="label label-default">已完成</span>' +
+                            '</div>',
+                    },
+                    {
+                        name: "操作",
+                        enableSorting: false,
+                        headerCellTemplate: '<span></span>',
+                        width: 120,
+                        cellTemplate:
+                             '<div class=\"ui-grid-cell-contents text-center\">' +
+                             '<a class="btn btn-xs btn-primary blue" ng-if="grid.appScope.permissions.edit && row.entity.isActive" ng-click="grid.appScope.editConference(row.entity)">编辑</a>' +
+                             '<a class="btn btn-xs btn-primary blue" ng-if="grid.appScope.permissions.edit && row.entity.isActive" ng-click="grid.appScope.completeConference(row.entity)">结束会议</a>' +
+                              '</div>'
+                    },
                 ],
                 onRegisterApi: function (gridApi) {
                     $scope.gridApi = gridApi;
@@ -90,7 +112,7 @@
                     skipCount: requestParams.skipCount,
                     maxResultCount: requestParams.maxResultCount,
                     sorting: requestParams.sorting,
-                    filter: vm.filterText
+                    name: vm.filterText
                 }).success(function (result) {
                     vm.conferenceGridOptions.totalItems = result.totalCount;
                     vm.conferenceGridOptions.data = result.items;
@@ -103,11 +125,28 @@
                 openCreateOrEditConferenceModal(null);
             };
 
+            vm.editConference = function (row) {
+                openCreateOrEditConferenceModal(row.id);
+            };
+
+            vm.completeConference = function (row)
+            {
+                vm.loading = true;
+                conferenceService.completeConference({
+                    id:row.id
+                }).success(function (result) {
+                    vm.getConferences();
+                }).finally(function () {
+                    vm.loading = false;
+                });
+            }
+
             function openCreateOrEditConferenceModal(conferenceId) {
                 var modalInstance = $uibModal.open({
                     templateUrl: '~/Admin/views/meeting/conference/createOrEditModal.cshtml',
                     controller: 'meet.views.conference.createOrEditModal as vm',
                     backdrop: 'static',
+                    size:'lg',
                     resolve: {
                         conferenceId: function () {
                             return conferenceId;

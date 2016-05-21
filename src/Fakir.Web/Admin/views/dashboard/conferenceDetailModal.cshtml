@@ -1,0 +1,71 @@
+    <div class="modal-body conference-detail">
+        <table class="table conference-detail-table">
+            <thead>
+                <tr class="detail-green">
+                    <th style="width:60px;">序号</th>
+                    <th style="width:120px;">项目</th>
+                    <th>内容<span class="right"><button ng-click="vm.cancel();" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="detail-green">1</th>
+                    <td class="detail-odd">会议名称</td>
+                    <td class="detail-odd">{{vm.item.name}}</td>
+                </tr>
+                <tr>
+                    <th class="detail-green">2</th>
+                    <td class="detail-even">会议主题</td>
+                    <td class="detail-even">{{vm.item.subject}}</td>
+                </tr>
+                <tr>
+                    <th class="detail-green">3</th>
+                    <td class="detail-odd">会议目标</td>
+                    <td class="detail-odd">
+                       <div ng-bind-html="vm.item.target"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="detail-green">4</th>
+                    <td class="detail-even">召开时间</td>
+                    <td class="detail-even">{{vm.item.startTime}}</td>
+                </tr>
+                <tr>
+                    <th class="detail-green">5</th>
+                    <td class="detail-odd">结束时间</td>
+                    <td class="detail-odd">{{vm.item.endTime}}</td>
+                </tr>
+                <tr>
+                    <th class="detail-green">6</th>
+                    <td class="detail-even">会议地点</td>
+                    <td class="detail-even">{{vm.item.site}}</td>
+                </tr>
+                <tr>
+                    <th class="detail-green">7</th>
+                    <td class="detail-odd">会议主持人</td>
+                    <td class="detail-odd">{{vm.item.emcee}}</td>
+                </tr>
+                <tr>
+                    <th class="detail-green">8</th>
+                    <td class="detail-even">参加人员</td>
+                    <td class="detail-even">陈勇、周达、信息中心全体</td>
+                </tr>
+                <tr>
+                    <th class="detail-green">9</th>
+                    <td class="detail-odd">会议议程</td>
+                    <td class="detail-odd">
+                        <ul>
+                            <li style="display:block;" ng-repeat="ag in vm.item.agendaDetails">
+
+                                {{$index+1}}.{{ag.name}}
+                            </li>
+                        </ul>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <a target="_blank" href="/startmeeting/{{vm.item.id}}" class="btn green-meadow btn-lg btn-block">开始会议</a>
+    </div>

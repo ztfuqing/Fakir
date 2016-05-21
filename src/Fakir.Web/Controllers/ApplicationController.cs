@@ -25,18 +25,18 @@ namespace Fakir.Web.Controllers
         [DisableAuditing]
         public ActionResult Index()
         {
-            var permissions = PermissionFinder
-                .GetAllPermissions(new AdminAuthorizationProvider())
-                .Where(p => p.MultiTenancySides.HasFlag(MultiTenancySides.Host))
-                .Select(a => a.Name)
-                .ToList();
+            //var permissions = PermissionFinder
+            //    .GetAllPermissions(new AdminAuthorizationProvider())
+            //    .Where(p => p.MultiTenancySides.HasFlag(MultiTenancySides.Host))
+            //    .Select(a => a.Name)
+            //    .ToList();
 
-            UpdateUserPermissionsInput input = new UpdateUserPermissionsInput()
-            {
-                Id = AbpSession.UserId.Value,
-                GrantedPermissionNames = permissions
-            };
-            _userService.UpdateUserPermissions(input);
+            //UpdateUserPermissionsInput input = new UpdateUserPermissionsInput()
+            //{
+            //    Id = AbpSession.UserId.Value,
+            //    GrantedPermissionNames = permissions
+            //};
+            //_userService.UpdateUserPermissions(input);
 
             return View("~/admin/views/layout/layout.cshtml");
         }

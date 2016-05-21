@@ -9,6 +9,12 @@ namespace Fakir.Metting.Dtos
     [AutoMap(typeof(Conference))]
     public class ConferenceEditDto 
     {
+        public ConferenceEditDto()
+        {
+            StartTime = DateTime.Now;
+            EndTime = DateTime.Now;
+        }
+
         public int? Id { get; set; }     
 
         [Required]
@@ -37,3 +43,4 @@ namespace Fakir.Metting.Dtos
         public  string Emcee { get; set; }
     }
 }
+

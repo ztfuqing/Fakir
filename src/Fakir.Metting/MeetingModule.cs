@@ -2,6 +2,7 @@
 using Abp.Modules;
 using System.Reflection;
 using Abp.Application.Services;
+using Abp.WebApi.Controllers.Dynamic.Builders;
 
 namespace Fakir.Metting
 {
@@ -16,6 +17,11 @@ namespace Fakir.Metting
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+            CustomDtoMapper.CreateMappings();
+
+            DynamicApiControllerBuilder
+                .ForAll<IApplicationService>(typeof(MeetingModule).Assembly, "meet")
+                .Build();
         }
     }
 }

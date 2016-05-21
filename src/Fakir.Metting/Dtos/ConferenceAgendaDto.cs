@@ -16,7 +16,9 @@ namespace Fakir.Metting.Dtos
 
         public string SpeakLength { get; set; }
 
-        public string Department { get; set; }
+        public string DepartmentName { get; set; }
+
+        public long DepartmentId { get; set; }
 
         public int Order { get; set; }
     }

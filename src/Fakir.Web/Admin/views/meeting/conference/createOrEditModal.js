@@ -6,18 +6,21 @@
 
             vm.saving = false;
             vm.conference = null;
+            vm.agenda = {};
             vm.users = [];
             vm.agendas = [];
-            vm.agendas[0] = { subject: "议程一", spokesman: "付庆", speakTime: "2015-12-11", speakLength: "8分钟", department: "市场部", order: 1 }
-            vm.users[0] = { userId: 1, displayName: "付庆" };
+            vm.departmentUserData = null;
+            vm.departmentOptions = null;
+            vm.selectDepartment=null;
             vm.save = function () {
                 vm.saving = true;
                 conferenceService.createOrUpdateConference({
                     conference: vm.conference,
-                    users: vm.users,
+                    users: _.map(vm.departmentUserData.selectedUsers, function (item) { return { userId: item, displayName: "" } }),
                     agendas: vm.agendas
+
                 }).success(function () {
-                    abp.notify.info(app.localize('SavedSuccessfully'));
+                    abp.notify.info("保存成功");
                     $uibModalInstance.close();
                 }).finally(function () {
                     vm.saving = false;
@@ -29,19 +32,46 @@
             };
 
             vm.getAgendasCount = function () {
-                return _.where(vm.agendas, {}).length;
+                return vm.agendas.length;
             };
 
+            vm.getUsersCount = function () {
+                if (vm.departmentUserData && vm.departmentUserData.selectedUsers)
+                    return vm.departmentUserData.selectedUsers.length;
+                return "";
+            };
+
+            vm.deleteAgenda = function (row) {
+                vm.agendas = _.without(vm.agendas, row);
+            }
+
+            vm.addAgenda = function (row) {
+                var department = _.chain(vm.departmentOptions).where({ value: vm.selectDepartment.value }).first().value();
+                row.departmentId=department.value;
+                row.departmentName=department.displayText;
+                vm.agendas[vm.agendas.length] = row;
+                vm.agenda = {};
+            }
+
+            vm.setStartTime = function onTimeSet(newDate, oldDate)
+            {
+                vm.conference.startTime = newDate;
+            }
+
+            vm.setEndTime = function onTimeSet(newDate, oldDate) {
+                vm.conference.endTime = newDate;
+            }
+
             function init() {
-                if (conferenceId != null) {
-                    conferenceService.getConferenceForEdit({
-                        id: conferenceId
-                    }).success(function (result) {
-                        vm.conference = result.conference;
-                        vm.users = result.users;
-                        vm.agendas = result.agendas;
-                    });
-                }
+                conferenceService.getConferenceForEdit({
+                    id: conferenceId
+                }).success(function (result) {
+                    vm.conference = result.conference;
+                    vm.users = result.users;
+                    vm.departmentUserData = result.departmentUserData;
+                    vm.departmentOptions = result.departments;
+                    vm.agendas = result.agendas ? result.agendas : {};
+                });
             }
 
             init();

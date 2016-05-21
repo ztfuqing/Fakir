@@ -127,6 +127,7 @@
     <Compile Include="Configuration\FakirSettings.cs" />
     <Compile Include="DataExporting\Excel\EpPlusExcelExporterBase.cs" />
     <Compile Include="Dto\FileDto.cs" />
+    <Compile Include="Dto\FlatDepartmentUserDto.cs" />
     <Compile Include="Dto\FlatPermissionDto.cs" />
     <Compile Include="Dto\PagedAndFilteredInputDto.cs" />
     <Compile Include="Dto\PagedAndSortedInputDto.cs" />

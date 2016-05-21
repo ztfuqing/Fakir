@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Domain.Entities;
@@ -30,8 +31,15 @@ namespace Fakir.Metting.Domain
         public virtual string SpeakLength { get; set; }
 
         [StringLength(100)]
-        public virtual string Department { get; set; }
+        public virtual string DepartmentName { get; set; }
+
+        public virtual long DepartmentId { get; set; }
 
         public virtual int Order { get; set; }
+
+        [MaxLength]
+        public virtual string Content { get; set; }
+
+        public virtual ICollection<AgendaFile> Files { get; set; }
     }
 }

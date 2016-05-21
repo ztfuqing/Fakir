@@ -1,0 +1,30 @@
+﻿.conference-detail {
+    padding: 0px;
+}
+.modal-conference-detail {
+margin-top:0px;
+width:1000px;
+}
+.conference-detail-table {
+    margin-bottom: 0px;
+    
+}
+    .conference-detail-table td ,.conference-detail-table th{
+    font-size:20px !important;
+    font-family:'Microsoft YaHei';
+    }
+    .conference-detail-table .detail-green {
+        background: #54A021;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .conference-detail-table .detail-odd {
+        background: #B7E995;
+        color: #000;    
+    }
+
+    .conference-detail-table .detail-even {
+        background: #DAF4CA;
+        color: #000;
+    }

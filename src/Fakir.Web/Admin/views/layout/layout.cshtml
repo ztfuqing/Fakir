@@ -62,7 +62,7 @@
 
     <script>
         abp.localization.defaultSourceName = '@LocalizationSourceName';
-        moment.locale('@Thread.CurrentThread.CurrentUICulture.Name.Left(2)'); //Localizing moment.js
+        moment.locale('zh-cn'); //Localizing moment.js
     </script>
 
     @Html.IncludeScript(ScriptPaths.Angular_Localization)
@@ -74,8 +74,8 @@
     <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
 
     <!-- SignalR scripts -->
-    <script src="~/signalr/hubs"></script>
-    @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.signalr.js")
+    @*<script src="~/signalr/hubs"></script>
+    @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.signalr.js")*@
 
     @Scripts.Render("~/Bundles/Admin/metronic/js")
     @Scripts.Render("~/Bundles/Common/js")

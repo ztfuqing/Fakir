@@ -42,6 +42,10 @@
       <HintPath>..\packages\Abp.Web.0.8.3.0\lib\net452\Abp.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Abp.Web.Api, Version=0.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Web.Api.0.8.3.0\lib\net452\Abp.Web.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Abp.Web.Mvc, Version=0.8.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Abp.Web.Mvc.0.8.3.0\lib\net452\Abp.Web.Mvc.dll</HintPath>
       <Private>True</Private>
@@ -109,9 +113,21 @@
       <HintPath>..\packages\System.Linq.Dynamic.1.0.6\lib\net40\System.Linq.Dynamic.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -154,6 +170,7 @@
     <Compile Include="Dtos\Roles\RoleEditDto.cs" />
     <Compile Include="Dtos\Roles\RoleListDto.cs" />
     <Compile Include="Dtos\Users\CreateOrUpdateUserInput.cs" />
+    <Compile Include="Dtos\Users\GetDepartmentUserTreeOutput.cs" />
     <Compile Include="Dtos\Users\GetLinkedUsersInput.cs" />
     <Compile Include="Dtos\Users\GetUserForEditOutput.cs" />
     <Compile Include="Dtos\Users\GetUserPermissionsForEditOutput.cs" />

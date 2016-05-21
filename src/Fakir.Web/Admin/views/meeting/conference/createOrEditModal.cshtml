@@ -15,37 +15,109 @@
                     </div>
 
                     <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                        <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.conference.subject}" ng-model="vm.conference.subject" required maxlength="100">
+                        <input type="text" name="Subject" class="form-control" ng-class="{'edited':vm.conference.subject}" ng-model="vm.conference.subject" required maxlength="100">
                         <label>会议主题</label>
                     </div>
 
                     <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                        <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.conference.site}" ng-model="vm.conference.site" required maxlength="100">
+                        <input type="text" name="Site" class="form-control" ng-class="{'edited':vm.conference.site}" ng-model="vm.conference.site" required maxlength="100">
                         <label>会议地点</label>
                     </div>
                     <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                        <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.conference.target}" ng-model="vm.conference.target" required maxlength="1000">
+                        <textarea class="form-control" rows="3" ng-class="{'edited':vm.conference.target}"  ng-model="vm.conference.target"></textarea>
                         <label>会议目标</label>
                     </div>
                     <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                        <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.conference.startTime}" ng-model="vm.conference.startTime" required maxlength="100">
                         <label>开始时间</label>
+                        <div class='input-group date'>
+                            <input type='text' class="form-control" ng-model="vm.conference.startTime" data-date-time-picker />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
                     </div>
                     <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                        <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.conference.endTime}" ng-model="vm.conference.endTime" required maxlength="100">
                         <label>结束时间</label>
+                        <div class='input-group date'>
+                            <input type='text' class="form-control" ng-model="vm.conference.endTime" data-date-time-picker />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        
                     </div>
                     <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                        <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.conference.emcee}" ng-model="vm.conference.emcee" required maxlength="100">
+                        <input type="text" name="Emcee" class="form-control" ng-class="{'edited':vm.conference.emcee}" ng-model="vm.conference.emcee" required maxlength="100">
                         <label>会议主持人</label>
+                    </div>
+                    <div class="md-checkbox">
+                        <input id="conference_Activation" class="md-check" type="checkbox" name="conference_Activation" ng-model="vm.conference.isActive">
+                        <label for="conference_Activation">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span>
+                            发布
+                        </label>
                     </div>
                 </uib-tab>
                 <uib-tab>
                     <uib-tab-heading>
                         议程<b class="badge badge-primary">{{vm.getAgendasCount()}}</b>
                     </uib-tab-heading>
+                    <div>
+                        <table class="table">
+                            <tr><th>序号</th><th>议程</th><th>发言人</th><th>发言时间</th><th>发言时长</th><th>负责部门</th><th>操作</th></tr>
+                            <tr ng-repeat="item in vm.agendas">
+                                <td>{{$index+1}}</td>
+                                <td>{{item.subject}}</td>
+                                <td>{{item.spokesman}}</td>
+                                <td>{{item.speakTime}}</td>
+                                <td>{{item.speakLength}}</td>
+                                <td>{{item.departmentName}}</td>
+                                <td><button class="btn btn-xs btn-primary blue" ng-click="vm.deleteAgenda(item)">删除</button></td>
+                            </tr>
+                        </table>
+                        <h1></h1>
+                        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                            <input class="form-control" type="text" name="Subject" ng-model="vm.agenda.subject"  maxlength="50">
+                            <label>会议议程</label>
+                        </div>
+
+                        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                            <input type="text" name="Surname" class="form-control" ng-model="vm.agenda.spokesman"  maxlength="100">
+                            <label>发言人</label>
+                        </div>
+
+                        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                            <label>发言时间</label>
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='text' class="form-control" ng-model="vm.agenda.speakTime" data-date-time-picker />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                            <input type="text" name="Surname" class="form-control"  ng-model="vm.agenda.speakLength"  maxlength="1000">
+                            <label>发言时长</label>
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                            <label>负责部门</label>
+                            <select ng-model="vm.selectDepartment" ng-options="m.displayText for m in vm.departmentOptions">
+                            </select>
+                           
+                        </div>
+
+                        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                            <button class="btn  btn-primary blue" ng-click="vm.addAgenda(vm.agenda)">添加议程</button>
+                        </div>
+                    </div>
                 </uib-tab>
-                <uib-tab heading="参会人员">
+                <uib-tab>
+                    <uib-tab-heading>
+                        参会人员<b class="badge badge-primary">{{vm.getUsersCount()}}</b>
+                    </uib-tab-heading>
+                    <user-tree edit-data="vm.departmentUserData"></user-tree>
                 </uib-tab>
             </uib-tabset>
         </div>

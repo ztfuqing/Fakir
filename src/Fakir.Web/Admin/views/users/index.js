@@ -38,24 +38,23 @@
                 rowTemplate: '<div ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name" class="ui-grid-cell" ng-class="{ \'ui-grid-row-header-cell\': col.isRowHeader, \'text-muted\': !row.entity.isActive }"  ui-grid-cell></div>',
                 columnDefs: [
                     {
-                        name: app.localize('Actions'),
+                        name: app.localize('操作'),
                         enableSorting: false,
                         width: 120,
                         cellTemplate:
                             '<div class=\"ui-grid-cell-contents\">' +
                             '  <div class="btn-group dropdown" uib-dropdown="">' +
-                            '    <button class="btn btn-xs btn-primary blue" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i> ' + app.localize('Actions') + ' <span class="caret"></span></button>' +
+                            '    <button class="btn btn-xs btn-primary blue" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i> 操作 <span class="caret"></span></button>' +
                             '    <ul uib-dropdown-menu>' +
-                            '      <li><a ng-if="grid.appScope.permissions.impersonation && row.entity.id != grid.appScope.currentUserId" ng-click="grid.appScope.impersonate(row.entity)">' + app.localize('LoginAsThisUser') + '</a></li>' +
-                            '      <li><a ng-if="grid.appScope.permissions.edit" ng-click="grid.appScope.editUser(row.entity)">' + app.localize('Edit') + '</a></li>' +
-                            '      <li><a ng-if="grid.appScope.permissions.changePermissions" ng-click="grid.appScope.editPermissions(row.entity)">' + app.localize('Permissions') + '</a></li>' +
-                            '      <li><a ng-if="grid.appScope.permissions.delete" ng-click="grid.appScope.deleteUser(row.entity)">' + app.localize('Delete') + '</a></li>' +
+                            '      <li><a ng-if="grid.appScope.permissions.edit" ng-click="grid.appScope.editUser(row.entity)">编辑</a></li>' +
+                            '      <li><a ng-if="grid.appScope.permissions.changePermissions" ng-click="grid.appScope.editPermissions(row.entity)">权限设置</a></li>' +
+                            '      <li><a ng-if="grid.appScope.permissions.delete" ng-click="grid.appScope.deleteUser(row.entity)">删除</a></li>' +
                             '    </ul>' +
                             '  </div>' +
                             '</div>'
                     },
                     {
-                        name: app.localize('名称'),
+                        name: "用户名",
                         field: 'userName',
                         cellTemplate:
                             '<div class=\"ui-grid-cell-contents\">' +
@@ -66,55 +65,34 @@
                         minWidth: 140
                     },
                     {
-                        name: app.localize('Name'),
-                        field: 'name',
-                        minWidth: 120
-                    },
-                    {
-                        name: app.localize('Surname'),
+                        name: "显示名称",
                         field: 'surname',
                         minWidth: 120
                     },
                     {
-                        name: app.localize('Roles'),
+                        name: "角色",
                         field: 'getRoleNames()',
                         enableSorting: false,
                         minWidth: 160
                     },
                     {
-                        name: app.localize('EmailAddress'),
+                        name: "邮箱",
                         field: 'emailAddress',
                         minWidth: 200
                     },
                     {
-                        name: app.localize('EmailConfirm'),
-                        field: 'isEmailConfirmed',
-                        cellTemplate:
-                            '<div class=\"ui-grid-cell-contents\">' +
-                            '  <span ng-show="row.entity.isEmailConfirmed" class="label label-success">' + app.localize('Yes') + '</span>' +
-                            '  <span ng-show="!row.entity.isEmailConfirmed" class="label label-default">' + app.localize('No') + '</span>' +
-                            '</div>',
-                        minWidth: 80
-                    },
-                    {
-                        name: app.localize('Active'),
+                        name: "状态",
                         field: 'isActive',
                         cellTemplate:
                             '<div class=\"ui-grid-cell-contents\">' +
-                            '  <span ng-show="row.entity.isActive" class="label label-success">' + app.localize('Yes') + '</span>' +
-                            '  <span ng-show="!row.entity.isActive" class="label label-default">' + app.localize('No') + '</span>' +
+                            '  <span ng-show="row.entity.isActive" class="label label-success">正常</span>' +
+                            '  <span ng-show="!row.entity.isActive" class="label label-default">禁用</span>' +
                             '</div>',
                         minWidth: 80
                     },
                     {
-                        name: app.localize('LastLoginTime'),
+                        name: "最后登录",
                         field: 'lastLoginTime',
-                        cellFilter: 'momentFormat: \'L\'',
-                        minWidth: 100
-                    },
-                    {
-                        name: app.localize('CreationTime'),
-                        field: 'creationTime',
                         cellFilter: 'momentFormat: \'L\'',
                         minWidth: 100
                     }

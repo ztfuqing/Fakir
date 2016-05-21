@@ -1,0 +1,45 @@
+<div>
+    <div class="modal-header">
+        <h4 class="modal-title">
+            <span>上传会议资料</span>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <uib-tabset class="tab-container tabbable-line">
+            <uib-tab heading="会议文件">
+                <div class="row" style="margin-bottom: 20px">
+                    <div class="col-xs-6">
+                        <div>
+                            <input class="file-name" type="text" readonly="readonly" ng-model="vm.fileItem.name" />
+                            <a class="fileupload btn btn-primary" href="javascript:;" name="file">
+                                <input type="file" name="key" nv-file-select="" uploader="vm.uploader" ng-click="vm.clearFiles()" />选择文件
+                            </a>
+                        </div>
+                    </div><div class="col-xs-6">
+                        <button class="btn btn-primary" type="submit" ng-click="vm.uploadFile()">上传</button>
+                    </div>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in vm.item.files">
+                        <span><a class="btn btn-sm btn-primary" ng-click="vm.deleteFle(item.id)">删除</a></span>
+                        {{item.fileName}}
+                    </li>
+                </ul>
+
+            </uib-tab>
+            <uib-tab>
+                <uib-tab-heading>
+                    会议内容
+                </uib-tab-heading>
+                <div>
+                    <textarea class="form-control" rows="3" ng-model="vm.item.content"></textarea>
+              
+                </div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+    <div class="modal-footer">
+        <button ng-disabled="vm.saving" type="button" class="btn btn-default" ng-click="vm.cancel()">取消</button>
+        <button type="submit" button-busy="vm.saving" busy-text="保存中..." class="btn btn-primary blue" ng-click="vm.save()"><i class="fa fa-save"></i> <span>保存</span></button>
+    </div>
+</div>
