@@ -86,6 +86,7 @@ namespace Fakir.Metting.Services
                 StartTime = conference.StartTime,
                 EndTime = conference.EndTime,
                 IsActive = conference.IsActive,
+                Users = string.Join(" , ", conference.Users.Select(a => a.CreatorUser.Surname).ToList()),
                 AgendaDetails = conference.Agendas.Select(a => new ConferenceAgendaDetailDto
                 {
                     Id = a.Id,

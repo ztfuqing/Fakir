@@ -48,14 +48,14 @@
                 <tr>
                     <th class="detail-green">8</th>
                     <td class="detail-even">参加人员</td>
-                    <td class="detail-even">陈勇、周达、信息中心全体</td>
+                    <td class="detail-even">{{vm.item.users}}</td>
                 </tr>
                 <tr>
                     <th class="detail-green">9</th>
                     <td class="detail-odd">会议议程</td>
                     <td class="detail-odd">
-                        <ul>
-                            <li style="display:block;" ng-repeat="ag in vm.item.agendaDetails">
+                        <ul style="padding-left:0px;">
+                            <li style="list-style-type:none;margin-left:0px;" ng-repeat="ag in vm.item.agendaDetails">
 
                                 {{$index+1}}.{{ag.name}}
                             </li>
@@ -67,5 +67,6 @@
         </table>
     </div>
     <div class="modal-footer">
-        <a target="_blank" href="/startmeeting/{{vm.item.id}}" class="btn green-meadow btn-lg btn-block">开始会议</a>
-    </div>
+        <a class="btn green-meadow btn-lg btn-block" ui-sref="showmeet({id: vm.item.id})">开始会议</a>
+          
+</div>

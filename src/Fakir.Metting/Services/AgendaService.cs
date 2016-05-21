@@ -50,12 +50,9 @@ namespace Fakir.Metting.Services
             return query.MapTo<List<AgendaListDto>>();
         }
 
-        public async Task<AgendaEditDto> GetAgendaForEdit(NullableIdInput<int> input)
+        public async Task<AgendaEditDto> GetAgendaForEdit(IdInput<int> input)
         {
-            if (!input.Id.HasValue)
-                throw new UserFriendlyException("不允许单独添加议程");
-
-            var agenda = await _aRepository.GetAsync(input.Id.Value);
+            var agenda = await _aRepository.GetAsync(input.Id);
 
             var files = agenda.Files.Select(a => new AgendaFileDto
             {

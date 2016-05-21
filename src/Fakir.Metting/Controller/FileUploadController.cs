@@ -59,7 +59,7 @@ namespace Fakir.Metting.Controller
             {
                 AgendaId = int.Parse(agendaId),
                 FileName = originalFileName,
-                FileUrl = "~/files/" + newName
+                FileUrl = "/files/" + newName
             });
 
             return Request.CreateResponse(HttpStatusCode.OK, "success!");

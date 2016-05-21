@@ -5,9 +5,12 @@
             var vm = this;
 
             $scope.$on('$includeContentLoaded', function () {
-                Layout.initHeader(); // init header
+                Layout.initHeader();
             });
 
+            vm.getShownUserName = function () {
+                    return appSession.user.surname;
+            };
         }
     ]);
 })();

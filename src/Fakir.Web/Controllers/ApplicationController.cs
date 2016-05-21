@@ -40,5 +40,10 @@ namespace Fakir.Web.Controllers
 
             return View("~/admin/views/layout/layout.cshtml");
         }
+
+        public ActionResult StartMeeting(int id)
+        {
+            return View("~/admin/views/layout/layout.cshtml");
+        }
     }
 }

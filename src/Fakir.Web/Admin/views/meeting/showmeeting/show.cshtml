@@ -1,0 +1,54 @@
+﻿<div ng-controller="meet.views.showmeeting.show as vm">
+    <div class="row">
+        <div class="col-xs-3">
+            <h2 class="text-center">议程</h2>
+            <ul style="padding-left:0px;">
+
+                <li style="font-size:16px; list-style-type:none;margin-left:0px; padding:10px 15px;" ng-repeat="ag in vm.item.agendaDetails">
+
+                    <a href="#" ng-class="{'active':vm.currentAgenda.agendaId==ag.id}" ng-click="vm.setAgenda(ag.id);">{{ag.name}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-9">
+            <div ng-if="vm.currentAgenda">
+                <div class="portlet light bordered ">
+                    <div class="portlet-title">
+                        <div class="caption agtitle">
+                            <span class="caption-subject bold ">{{vm.currentAgenda.agendaName}}&nbsp;&nbsp;(发言人:{{vm.currentAgenda.spokesman}})</span>
+                        </div>
+                        <div class="actions">
+                            <a href="#" class="btn btn-circle btn-icon-only btn-default fullscreen" title="全屏"> </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div ng-bind-html="vm.currentAgenda.content"></div>
+                    </div>
+                </div>
+
+                <div class="portlet light bordered ">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <span class="caption-subject font-green bold uppercase">附件</span>
+                        </div>
+                        <div class="actions">
+                            <a href="#" ng-click="vm.changeFileState();"><span ng-if="vm.showfile">隐藏</span><span ng-if="!vm.showfile">显示</span></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body" ng-if="vm.showfile">
+                        <ul style="padding-left:0px;">
+                            <li style="list-style-type:none;margin-left:0px; padding:5px;" ng-repeat="file in vm.currentAgenda.files">
+                                <a target="_blank" ng-href="{{file.fileUrl}}">{{file.fileName}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -4,6 +4,7 @@
         function ($scope, $uibModalInstance, conferenceService, conferenceId) {
             var vm = this;
             vm.item = null;
+            vm.currentAgenda = null;
 
             vm.cancel = function () {
                 $uibModalInstance.dismiss();

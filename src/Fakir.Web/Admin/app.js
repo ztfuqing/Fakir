@@ -108,6 +108,11 @@ appModule.config([
             url: '/agenda',
             templateUrl: '~/Admin/views/meeting/agenda/index.cshtml'
         });
+
+        $stateProvider.state('showmeet', {
+            url: '/showmeet/:id',
+            templateUrl: '~/Admin/views/meeting/showmeeting/show.cshtml'
+        });
     }
 ]);
 

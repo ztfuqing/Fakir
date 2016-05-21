@@ -27,6 +27,8 @@ namespace Fakir.Metting.Dtos
 
         public bool IsActive { get; set; }
 
+        public string Users { get; set; }
+
         public List<ConferenceAgendaDetailDto> AgendaDetails { get; set; }
     }
 

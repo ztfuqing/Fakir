@@ -14,7 +14,7 @@ namespace Fakir.Metting.Services
         Task<List<AgendaListDto>> GetUserDepartmentAgendas(NullableIdInput<long> input);
 
 
-        Task<AgendaEditDto> GetAgendaForEdit(NullableIdInput<int> input);
+        Task<AgendaEditDto> GetAgendaForEdit(IdInput<int> input);
 
         Task SaveAgenda(AgendaEditDto input);
 

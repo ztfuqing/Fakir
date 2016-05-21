@@ -355,7 +355,8 @@
     <Content Include="Admin\views\meeting\agenda\index.js" />
     <Content Include="Admin\views\meeting\conference\createOrEditModal.js" />
     <Content Include="Admin\views\meeting\conference\index.js" />
-    <Content Include="Admin\views\meeting\showmeeting\showtemplate.js" />
+    <Content Include="Admin\views\meeting\showmeeting\show.css" />
+    <Content Include="Admin\views\meeting\showmeeting\show.js" />
     <Content Include="Admin\views\roles\createOrEditModal.js" />
     <Content Include="Admin\views\roles\index.js" />
     <Content Include="Admin\views\users\createOrEditModal.js" />
@@ -2575,7 +2576,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Admin\views\meeting\agenda\uploadfile.cshtml" />
-    <Content Include="Admin\views\meeting\showmeeting\starttemplate.cshtml" />
+    <Content Include="Admin\views\meeting\showmeeting\show.cshtml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
